@@ -39,6 +39,7 @@ class GameObject{
             return `${this.name} offers a greeting in ${this.language}.`;
     };
   }
+  
   const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
