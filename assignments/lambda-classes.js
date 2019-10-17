@@ -18,10 +18,10 @@ class Instructor extends Person{
         this.favLanguage = attributes.favLanguage
         this.catchPhrase = attributes.catchPhrase
     }
-    demo(subject){
+    demo(){
         return `Today we are learning about ${instructor.subject}.`;
     }
-    grade(subject){
+    grade(){
         return `${student.name} receives a perfect score on ${student.subject}.`;
     }
 }
@@ -31,17 +31,22 @@ class Student extends Person{
     super(attributes);
         this.previousBackground = attributes.previousBackground,
         this.className = attributes.className,
-        this.favSubjects = attributes.favSubjects
+        this.favSubjects = attributes.favSubjects,
+        this.grade = attributes.grade
     }
     listsSubjects(){
         return `${this.favSubjects}`;
     }
+        // student.favSubjects.map(subject => {
+        //     return 'subject';
+        // }
     PRAssignment(){
         return `${this.name} has submitted a PR for ${this.subject}.`;
     }
     sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${student.subject}.`;
     }
+    
 }
 
 class projectManager extends Instructor{
@@ -51,11 +56,11 @@ class projectManager extends Instructor{
         this.favInstructor = attributes.favInstructor
         this.channel = attributes.channel
     }
-    standUp(channel){
+    standUp(){
         return `${this.name} annouces to ${manager.channel}, @channel standy times!`;
     }
-    debugsCode(subject){
-        return `${this.name} debugs ${student.name}'s code on ${student.subject}.`;
+    debugsCode(){
+        return `${this.name} debugs ${student.name}'s code on ${manager.subject}.`;
     }
 }
 
@@ -84,10 +89,11 @@ const student = new Student({
     previousBackground: 'Uber Driver',
     className: 'CS132',
     favSubjects: ['HTML', ' CSS', ' JavaScript'],
+    grade: 95
 })
 const manager = new projectManager({
     name: 'Carol',
-    channel: 'Help Channel',
+    channel: 'Pair Programming',
     gradClassName: 'CS1',
     favInstructor: 'Sean',
     subject: 'React',
